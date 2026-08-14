@@ -16,7 +16,7 @@ namespace SilentGallery.TimerSystem
         /// has to find the clues before losing. Currently 180 seconds (3 minutes).
         /// </summary>
         [SerializeField]
-        private float startingDurationSeconds = 180f;
+        private float startingDurationSeconds = 300f;
 
         /// <summary>If true, the timer starts counting down automatically when the scene loads.</summary>
         [SerializeField]

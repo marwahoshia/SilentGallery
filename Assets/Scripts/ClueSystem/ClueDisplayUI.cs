@@ -4,33 +4,35 @@ using UnityEngine;
 namespace SilentGallery.ClueSystem
 {
     /// <summary>
-    /// Shows a popup panel with the title and text of a clue whenever
-    /// <see cref="ClueManager.OnClueRevealed"/> fires. Attach to a UI GameObject
-    /// in the gameplay scene and assign all fields in the Inspector.
+    /// Shows a popup panel with the title and text of a clue.
     /// </summary>
     public class ClueDisplayUI : MonoBehaviour
     {
-        /// <summary>The root panel GameObject to show/hide. Should start inactive in the scene.</summary>
+        /// <summary>
+        /// The root panel GameObject to show/hide.
+        /// </summary>
         [SerializeField]
         private GameObject cluePanel;
 
-        /// <summary>Label that displays the clue's title.</summary>
+        /// <summary>
+        /// Label that displays the clue's title.
+        /// </summary>
         [SerializeField]
         private TextMeshProUGUI titleText;
 
-        /// <summary>Label that displays the clue's full text.</summary>
+        /// <summary>
+        /// Label that displays the clue's full text.
+        /// </summary>
         [SerializeField]
         private TextMeshProUGUI bodyText;
 
         private void Start()
         {
-            // Subscribing in Start (not OnEnable) guarantees ClueManager.Awake has
-            // already run and set Instance, since Unity calls all Awake methods
-            // before any Start method.
             if (ClueManager.Instance != null)
             {
                 ClueManager.Instance.OnClueRevealed += ShowClue;
             }
+
             if (cluePanel != null)
             {
                 cluePanel.SetActive(false);
@@ -51,25 +53,37 @@ namespace SilentGallery.ClueSystem
             {
                 titleText.text = clue.Title;
             }
+
             if (bodyText != null)
             {
                 bodyText.text = clue.ClueText;
             }
+
             if (cluePanel != null)
             {
                 cluePanel.SetActive(true);
             }
+
+            // Unlock and show the mouse cursor
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
 
         /// <summary>
-        /// Hides the clue popup panel. Wire this to a "Close" button's OnClick event.
+        /// Hides the clue popup panel.
+        /// Connect this function to the Close button's OnClick event.
         /// </summary>
         public void CloseClueDisplay()
-        {
-            if (cluePanel != null)
-            {
-                cluePanel.SetActive(false);
-            }
-        }
+{
+    Debug.Log("CLOSE BUTTON CLICKED");
+
+    if (cluePanel != null)
+    {
+        cluePanel.SetActive(false);
+    }
+
+    Cursor.lockState = CursorLockMode.Locked;
+    Cursor.visible = false;
+}
     }
 }
