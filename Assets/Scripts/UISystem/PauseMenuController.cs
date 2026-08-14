@@ -34,6 +34,7 @@ namespace SilentGallery.UISystem
         {
             if (Input.GetKeyDown(pauseKey))
             {
+                Debug.Log("Escape pressed");
                 if (IsPaused)
                 {
                     ResumeGame();
@@ -56,6 +57,8 @@ namespace SilentGallery.UISystem
                 pausePanel.SetActive(true);
             }
             Time.timeScale = 0f;
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
 
         /// <summary>
@@ -70,6 +73,8 @@ namespace SilentGallery.UISystem
                 pausePanel.SetActive(false);
             }
             Time.timeScale = 1f;
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
         }
 
         /// <summary>

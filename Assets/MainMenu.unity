@@ -921,9 +921,37 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "HOW TO PLAY\n\nWASD \u2014 Move\n\nMouse \u2014 Look around\n\nE \u2014
-    Interact with paintings & artifacts\n\nEscape \u2014 Pause / Resume game\n\nOBJECTIVE\n\nFind
-    and collect 5 clues before the timer runs out!\n\nGood luck..."
+  m_text: 'HOW TO PLAY
+
+    
+
+    WASD - Move
+
+    Mouse - Look around
+
+    E
+    - Interact with paintings and artifacts
+
+    Esc - Pause / Resume game
+
+    
+
+    OBJECTIVE
+
+    You
+    have 5 minutes to find 5 hidden clues
+
+    scattered across the museum.
+
+    Find
+    them all before dawn or the mystery
+
+    remains unsolved...
+
+    
+
+    Good
+    luck!'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
