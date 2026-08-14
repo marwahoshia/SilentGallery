@@ -59,11 +59,8 @@ Where a design decision is unresolved (e.g. "how many clues are needed to win"),
 
 ## Open Questions Log
 
-- Win condition: exact number of clues required to win is not yet finalized. Placeholder: `ClueManager.CLUES_REQUIRED_TO_WIN = 3` in `Assets/Scripts/ClueSystem/ClueManager.cs`.
- feature/clue-reveal-system
-
-- Timer duration: exact countdown length is not yet finalized. Placeholder: `CountdownTimer.startingDurationSeconds = 180` (3 min) in `Assets/Scripts/TimerSystem/CountdownTimer.cs`.
- main
+- ~~Win condition~~ Resolved: 5 clues required to win. `ClueManager.CLUES_REQUIRED_TO_WIN = 5` in `Assets/Scripts/ClueSystem/ClueManager.cs`.
+- ~~Timer duration~~ Resolved: 300 seconds (5 min). `CountdownTimer.startingDurationSeconds = 300` in `Assets/Scripts/TimerSystem/CountdownTimer.cs`.
 
 ## Documentation
 

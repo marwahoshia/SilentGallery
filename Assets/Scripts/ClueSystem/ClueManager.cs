@@ -11,11 +11,8 @@ namespace SilentGallery.ClueSystem
     /// </summary>
     public class ClueManager : MonoBehaviour
     {
-        /// <summary>
-        /// PLACEHOLDER: open question, confirm with the team how many clues
-        /// the player must find to win. Change this single value once decided.
-        /// </summary>
-        private const int CLUES_REQUIRED_TO_WIN = 3;
+        /// <summary>The number of clues the player must find to win.</summary>
+        private const int CLUES_REQUIRED_TO_WIN = 5;
 
         /// <summary>The shared instance for this scene. Set automatically in Awake.</summary>
         public static ClueManager Instance { get; private set; }
