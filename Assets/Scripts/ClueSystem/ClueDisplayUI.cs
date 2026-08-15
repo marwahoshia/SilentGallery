@@ -1,30 +1,24 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 
 namespace SilentGallery.ClueSystem
 {
-    /// <summary>
-    /// Shows a popup panel with the title and text of a clue.
-    /// </summary>
     public class ClueDisplayUI : MonoBehaviour
     {
-        /// <summary>
-        /// The root panel GameObject to show/hide.
-        /// </summary>
         [SerializeField]
         private GameObject cluePanel;
 
-        /// <summary>
-        /// Label that displays the clue's title.
-        /// </summary>
         [SerializeField]
         private TextMeshProUGUI titleText;
 
-        /// <summary>
-        /// Label that displays the clue's full text.
-        /// </summary>
         [SerializeField]
         private TextMeshProUGUI bodyText;
+
+        [SerializeField]
+        private float displayDuration = 5f;
+
+        private Coroutine closeCoroutine;
 
         private void Start()
         {
@@ -49,6 +43,12 @@ namespace SilentGallery.ClueSystem
 
         private void ShowClue(ClueData clue)
         {
+            if (clue == null || cluePanel == null)
+            {
+                return;
+            }
+
+            // Update clue text
             if (titleText != null)
             {
                 titleText.text = clue.Title;
@@ -59,31 +59,28 @@ namespace SilentGallery.ClueSystem
                 bodyText.text = clue.ClueText;
             }
 
-            if (cluePanel != null)
+            // Show panel
+            cluePanel.SetActive(true);
+
+            // If an old timer is running, restart it
+            if (closeCoroutine != null)
             {
-                cluePanel.SetActive(true);
+                StopCoroutine(closeCoroutine);
             }
 
-            // Unlock and show the mouse cursor
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
+            closeCoroutine = StartCoroutine(AutoCloseClue());
         }
 
-        /// <summary>
-        /// Hides the clue popup panel.
-        /// Connect this function to the Close button's OnClick event.
-        /// </summary>
-        public void CloseClueDisplay()
-{
-    Debug.Log("CLOSE BUTTON CLICKED");
+        private IEnumerator AutoCloseClue()
+        {
+            yield return new WaitForSeconds(displayDuration);
 
-    if (cluePanel != null)
-    {
-        cluePanel.SetActive(false);
-    }
+            if (cluePanel != null)
+            {
+                cluePanel.SetActive(false);
+            }
 
-    Cursor.lockState = CursorLockMode.Locked;
-    Cursor.visible = false;
-}
+            closeCoroutine = null;
+        }
     }
 }

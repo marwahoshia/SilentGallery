@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ca637697d8219346a6719fd063dd407, type: 3}
   m_Name: Clue_04_GreekStatue
   m_EditorClassIdentifier: 
-  clueId: 
-  title: 
-  clueText: 
+  clueId: clue_004
+  title: The Greek Statue
+  clueText: A strange symbol is carved into the base of the statue. It matches a
+    mark mentioned in the curator's records.
