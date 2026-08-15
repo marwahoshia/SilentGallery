@@ -22,8 +22,6 @@ namespace SilentGallery.ClueSystem
 
         private void ClosePanel()
         {
-            Debug.Log("CLOSE WORKED");
-
             if (cluePanel != null)
             {
                 cluePanel.SetActive(false);

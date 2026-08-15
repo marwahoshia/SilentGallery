@@ -33,7 +33,6 @@ namespace SilentGallery.InteractionSystem
 
             if (currentInteractable != null && Input.GetKeyDown(interactKey))
             {
-                Debug.Log("E pressed - interacting with: " + currentInteractable);
                 currentInteractable.Interact(gameObject);
             }
         }

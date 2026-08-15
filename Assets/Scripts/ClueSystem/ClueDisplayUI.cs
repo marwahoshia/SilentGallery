@@ -62,6 +62,10 @@ namespace SilentGallery.ClueSystem
             // Show panel
             cluePanel.SetActive(true);
 
+            // Unlock and show the mouse cursor so the player can click Close
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+
             // If an old timer is running, restart it
             if (closeCoroutine != null)
             {
@@ -79,6 +83,9 @@ namespace SilentGallery.ClueSystem
             {
                 cluePanel.SetActive(false);
             }
+
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
 
             closeCoroutine = null;
         }
