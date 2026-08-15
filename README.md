@@ -1,161 +1,41 @@
-![Unity](https://img.shields.io/badge/Unity-2022.3.62f3-black?logo=unity)
-![Platform](https://img.shields.io/badge/Platform-Windows-blue)
-![Status](https://img.shields.io/badge/Status-In%20Development-yellow)
+Welcome. This document provides essential information about the game, including how to play, game mechanics, controls, and additional notes.
 
-# The Silent Gallery
+## Team Group H
 
-A first-person mystery set in a museum after hours. The exhibits hold more than art — five clues are hidden among them, and the clock is already running.
+**Game Name:** The Silent Gallery
 
----
+**Participants:**
+- Fatima Abu Abed
+- Marwa Hoshia
+- Hiba Abdo
+- Haneen Shqerat
 
 ## Table of Contents
 
-- [Overview](#overview)
-- [Gameplay Video](#gameplay-video)
-- [Screenshots](#screenshots)
+- [Game Overview](#game-overview)
+- [Credits](#credits)
 - [How to Play](#how-to-play)
-- [Game Flow](#game-flow)
-- [Systems &amp; Architecture](#systems--architecture)
-- [Getting Started](#getting-started)
-- [Project Structure](#project-structure)
-- [Team](#team)
-- [Tech Stack &amp; Assets](#tech-stack--assets)
-- [Known Limitations &amp; Roadmap](#known-limitations--roadmap)
-- [Academic Context](#academic-context)
+- [Controls](#controls)
+- [Objectives & Goals](#objectives--goals)
+- [Game Mechanics & Features](#game-mechanics--features)
+- [System Requirements](#system-requirements)
+- [Known Issues & Troubleshooting](#known-issues--troubleshooting)
+- [Additional Notes](#additional-notes)
+- [Media](#media)
 
----
+## Game Overview
 
-## Overview
+**Genre:** First-person mystery / exploration
 
-**The Silent Gallery** is a short first-person exploration game built in Unity. The player wakes up locked inside a museum gallery after closing time and has to piece together what happened by finding five hidden clues — a torn letter, a smudged painting, a curator's ledger, and more — before time runs out.
+**Platform:** Windows
 
-| | |
-|---|---|
-| **Genre** | First-person mystery / clue hunt |
-| **Playtime** | ~5 minutes per run |
-| **Win condition** | Reveal all 5 clues before the timer expires |
-| **Lose condition** | Timer reaches zero first |
-| **Scenes** | Main Menu → Gallery (gameplay) |
+**Team:** Fatima Abu Abed, Marwa Hoshia, Hiba Abdo, Haneen Shqerat
 
-## Gameplay Video
+The player wakes up locked inside a museum gallery after closing time. Something happened here, and the only way out is to piece together what — five clues are hidden among the exhibits: a torn letter, a smudged painting, a curator's ledger, a Greek statue, and an old museum key. Explore the gallery, interact with the paintings and artifacts, and find them all before dawn — or the mystery remains unsolved.
 
-> 🎬 **TODO:** Replace with the team's recorded YouTube walkthrough (5–10 min, narrated) before submission.
->
-> [Watch on YouTube](#)
+## Credits
 
-## Screenshots
-
-> 🖼️ **TODO:** Add screenshots before submission. Suggested shots:
-
-| Shot | Description |
-|---|---|
-| Main Menu | Title screen with Play / How to Play / Settings / Credits |
-| Gallery interior | A room showing the exhibit layout and lighting |
-| Clue popup | The reveal panel showing a found clue's title and text |
-| Pause Menu | In-game pause overlay |
-| Win / Lose screen | End state screen with Restart / Main Menu options |
-
-## How to Play
-
-### Objective
-
-Explore the gallery and find **5 clues** before the **5-minute countdown** reaches zero.
-
-### Controls
-
-| Action | Input |
-|---|---|
-| Move | `W` `A` `S` `D` |
-| Look around | Mouse |
-| Jump | `Space` |
-| Interact / Inspect | `E` |
-| Pause | `Esc` |
-
-The interact prompt ("Press E to inspect...") appears automatically whenever you're looking at something within reach — no guessing required.
-
-### Win / Lose
-
-- **Win:** reveal all 5 clues before the timer runs out.
-- **Lose:** the countdown reaches `00:00` first.
-
-Either outcome ends the game on a dedicated end screen with the option to restart or return to the Main Menu.
-
-## Game Flow
-
-```
-Main Menu
- ├─ Play          → loads Gallery scene
- ├─ How to Play    → instructions panel
- ├─ Settings       → settings panel
- ├─ Credits        → credits panel
- └─ Quit           → exits the application
-
-Gallery (gameplay)
- ├─ Esc            → Pause Menu (Resume / Restart / Main Menu / Quit)
- └─ Win or Lose     → End Screen (Restart / Main Menu)
-```
-
-## Systems &amp; Architecture
-
-The codebase is split into independent systems under `Assets/Scripts/`, each with its own README:
-
-| System | Scripts | Responsibility |
-|---|---|---|
-| [Player Movement](Assets/Scripts/PlayerMovement/README.md) | `FirstPersonController` | `CharacterController`-based WASD movement, mouse look, jump, gravity |
-| [Interaction System](Assets/Scripts/InteractionSystem/README.md) | `IInteractable`, `InteractionController`, `InteractionPromptUI` | Camera raycast detection, focus/interact events, on-screen prompt |
-| [Clue System](Assets/Scripts/ClueSystem/README.md) | `ClueData`, `ClueObject`, `ClueManager`, `ClueDisplayUI` | Clue data (ScriptableObject), reveal tracking, win-threshold event, popup UI |
-| [Timer System](Assets/Scripts/TimerSystem/README.md) | `CountdownTimer`, `TimerDisplayUI` | Countdown logic (pauses with `Time.timeScale`), mm:ss display |
-| [UI System](Assets/Scripts/UISystem/README.md) | `MainMenuController`, `PauseMenuController`, `MenuPanelController`, `SceneNames` | Menu navigation, pause logic, How to Play / Settings / Credits panels |
-| [Win/Lose System](Assets/Scripts/WinLoseSystem/README.md) | `GameOutcomeManager`, `EndScreenController` | Listens to Clue + Timer systems, decides the outcome, drives the end screen |
-
-Systems communicate through C# events (`Action`/`Action<T>`) rather than direct references where possible, so e.g. the UI layer never has to poll game state — it just reacts to `OnClueRevealed`, `OnTimerExpired`, `OnGameWon`, etc.
-
-## Getting Started
-
-**Requirements:** Unity **2022.3.62f3** (or a compatible 2022 LTS patch), via Unity Hub.
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/marwahoshia/SilentGallery.git
-   ```
-2. In Unity Hub → **Add** → select the cloned folder.
-3. Open the project. Let Unity import (first import may take a few minutes).
-4. Open `Assets/MainMenu.unity` and press **Play** — or go to **File → Build Settings → Build** to produce a standalone build. Both scenes are already registered in Build Settings, with `MainMenu` as the starting scene.
-
-## Project Structure
-
-```
-Assets/
-├── MainMenu.unity            # Entry-point scene
-├── Gallery.unity              # Gameplay scene
-├── Scripts/
-│   ├── PlayerMovement/
-│   ├── InteractionSystem/
-│   ├── ClueSystem/
-│   ├── TimerSystem/
-│   ├── UISystem/
-│   └── WinLoseSystem/
-└── ...                         # Environment, prop, and material assets
-```
-
-## Team
-
-Built by a 4-person team for a Unity course project.
-
-| Member | System(s) Owned |
-|---|---|
-| Fatima Abu Abed | Player Movement + Interaction System |
-| Marwa Hoshia | UI — Main Menu &amp; Pause Menu, Win/Lose End Screen; overall codebase lead |
-| Hiba Abdo | Clue Reveal System |
-| Haneen Shqerat | Level Design + Countdown Timer |
-
-## Tech Stack &amp; Assets
-
-- **Engine:** Unity 2022.3.62f3, Built-in Render Pipeline
-- **Language:** C#
-- **Packages:** TextMeshPro 3.0.9, ProBuilder 5.2.4
-
-**Third-party environment/prop assets** (used for educational, non-commercial coursework under their respective licenses):
+Third-party environment and prop assets used, under their respective licenses, for educational, non-commercial coursework use:
 
 - 3D Free Modular Kit — Barking_Dog
 - Greek Statue
@@ -164,18 +44,83 @@ Built by a 4-person team for a Unity course project.
 - Ancient Pots
 - Books pack
 - Free Statue Pack
-- Concrete Bench — H&amp;L Assets
+- Concrete Bench — H&L Assets
 - Furniture (Bandaji, folding screens, tables) — KCDF
 
-## Known Limitations &amp; Roadmap
+## How to Play
 
-- [ ] On-screen clue progress counter (e.g. "3 / 5 clues found") — tracking data already exists in `ClueManager`
-- [ ] Background music / sound effects
-- [ ] Functional Settings panel (volume, sensitivity, etc.) — currently a placeholder
-- [ ] Settings option from the Pause Menu
-- [ ] Additional animated objects/characters
-- [ ] Cheat manager for testing/debugging
+**Starting the Game:** Open the project in Unity 2022.3.62f3, open `Assets/MainMenu.unity`, and press Play — or run a built `.exe`, which starts at the Main Menu automatically. From the Main Menu, select **New Game** to begin.
 
-## Academic Context
+**Gameplay Basics:** You start inside the gallery with a 5-minute countdown already running (shown top-right of the screen). Walk around, look at the exhibits, and press **E** whenever a "Press E to inspect..." prompt appears to reveal a clue. Each clue opens a popup with its title and text, then closes automatically, or via the on-screen Close button.
 
-Developed as a **Unity Course Project — Student Choice** assignment. See [`CHANGELOG.md`](CHANGELOG.md) for a history of notable changes, and [`CLAUDE.md`](CLAUDE.md) for internal development conventions.
+**Levels/Stages:** The game has a single gameplay scene (the Gallery). There are no separate levels — the whole objective is contained within one continuous playthrough.
+
+## Controls
+
+| Action | Input |
+|---|---|
+| Move | `W` `A` `S` `D` |
+| Look around | Mouse |
+| Interact with paintings and artifacts | `E` |
+| Pause / Resume | `Esc` |
+
+## Objectives & Goals
+
+**Main Objective:** Find all 5 hidden clues scattered across the museum before the 5-minute timer runs out.
+
+**Secondary Goals:** None beyond the main objective — the clue texts build a small narrative as you find them, but there's no separate scoring or optional content.
+
+## Game Mechanics & Features
+
+- **Clue Reveal System:** Interactable exhibits hold clue data (title + text). Finding a new clue shows a popup and counts toward the win condition; already-found clues can be re-inspected without double-counting.
+- **Interaction System:** A camera raycast detects nearby interactable objects and shows a context-sensitive prompt before you interact.
+- **Countdown Timer:** A 5-minute timer runs from the moment gameplay starts, shown top-right of the screen, and drives the lose condition if it reaches zero first.
+- **Win / Lose End Screen:** Finding all 5 clues before time runs out shows "YOU WIN! All clues found!"; the timer expiring first shows "YOU LOSE! Time is up...". Both offer a restart button and a return to Main Menu.
+- **Pause Menu:** `Esc` opens a pause overlay (Resume / Restart / Main Menu / Quit) and freezes gameplay time without exiting the scene.
+
+## System Requirements
+
+**Minimum Requirements:**
+- OS: Windows 10 or later
+- Processor: Any dual-core CPU from the last decade
+- Memory: 4 GB RAM
+- Graphics: Any GPU with DX11 support (integrated graphics is sufficient)
+- Storage: ~1 GB free space
+
+**Recommended Requirements:**
+- OS: Windows 10/11
+- Processor: Quad-core CPU
+- Memory: 8 GB RAM
+- Graphics: Dedicated GPU
+- Storage: ~1 GB free space
+
+## Known Issues & Troubleshooting
+
+- **Main Menu doesn't appear when pressing Play in the Unity Editor:** Play mode runs whichever scene is currently open in the Editor, not necessarily the first Build Settings scene. Open `Assets/MainMenu.unity` before pressing Play. This does not affect built `.exe` versions, which always start at the Main Menu correctly.
+- **Settings panel is a placeholder:** The Settings screen (Main Menu) currently has no functional options.
+
+## Additional Notes
+
+**Game Version:** Submission build, August 2026
+
+**Last Update:** See the repository's commit history for the most recent changes.
+
+**Contact Information:** Reach out to any team member listed above via the course's usual channels for bug reports or feedback.
+
+## Media
+
+**Gameplay video:** [Watch on YouTube](https://youtu.be/twJdEOO1994)
+
+**Screenshots:**
+
+| Main Menu | How to Play |
+|---|---|
+| ![Main Menu](Screenshots/MainMenu.png) | ![How to Play](Screenshots/HowToPlay.png) |
+
+| Gameplay | Clue Popup |
+|---|---|
+| ![Gameplay](Screenshots/Gameplay.png) | ![Clue Popup](Screenshots/CluePopup.png) |
+
+| Pause Menu | Win Screen | Lose Screen |
+|---|---|---|
+| ![Pause Menu](Screenshots/Pause.png) | ![Win Screen](Screenshots/WinScreen.png) | ![Lose Screen](Screenshots/LoseScreen.png) |
