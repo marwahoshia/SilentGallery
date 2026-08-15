@@ -20,16 +20,17 @@ namespace SilentGallery.UISystem
         }
 
         /// <summary>
-        /// Quits the application. Has no effect when running in the Unity Editor;
-        /// only works in a built (.exe) version of the game.
+        /// Quits play mode in the Unity Editor, or quits the application in a
+        /// built (.exe) version of the game.
         /// Wire this to the "Quit" button's OnClick event.
         /// </summary>
         public void QuitGame()
         {
 #if UNITY_EDITOR
-            Debug.Log("QuitGame called - this only quits in a real build, not in the Editor.");
-#endif
+            UnityEditor.EditorApplication.isPlaying = false;
+#else
             Application.Quit();
+#endif
         }
     }
 }
