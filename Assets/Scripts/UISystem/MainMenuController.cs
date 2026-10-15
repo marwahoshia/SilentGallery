@@ -11,12 +11,13 @@ namespace SilentGallery.UISystem
     public class MainMenuController : MonoBehaviour
     {
         /// <summary>
-        /// Loads the gameplay scene defined in <see cref="SceneNames.GAMEPLAY_SCENE"/>.
+        /// Loads the loading screen defined in <see cref="SceneNames.LOADING_SCENE"/>,
+        /// which then loads the gameplay scene asynchronously in the background.
         /// Wire this to the "Play" button's OnClick event.
         /// </summary>
         public void PlayGame()
         {
-            SceneManager.LoadScene(SceneNames.GAMEPLAY_SCENE);
+            SceneManager.LoadScene(SceneNames.LOADING_SCENE);
         }
 
         /// <summary>

@@ -19,5 +19,12 @@ namespace SilentGallery.UISystem
         /// file name and its entry in File &gt; Build Settings &gt; Scenes In Build.
         /// </summary>
         public const string GAMEPLAY_SCENE = "Gallery";
+
+        /// <summary>
+        /// The loading screen shown between the Main Menu and the gameplay scene
+        /// while it loads asynchronously. Must exactly match the scene's file name
+        /// and its entry in File &gt; Build Settings &gt; Scenes In Build.
+        /// </summary>
+        public const string LOADING_SCENE = "LoadingScreen";
     }
 }
