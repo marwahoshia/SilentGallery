@@ -45,7 +45,7 @@ namespace SilentGallery.LoadingSystem
                 progressBar.value = 1f;
             }
 
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(2f);
             operation.allowSceneActivation = true;
         }
     }
