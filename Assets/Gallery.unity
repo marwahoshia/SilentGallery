@@ -12501,10 +12501,60 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2134920685}
   m_CullTransparentMesh: 1
+--- !u!1 &900000030
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 900000031}
+  - component: {fileID: 900000032}
+  m_Layer: 0
+  m_Name: GameplaySfxPlayer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &900000031
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 900000030}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &900000032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 900000030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fac298511dbf49e08e3524610c4178fa, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  clueManager: {fileID: 1751373797}
+  gameOutcomeManager: {fileID: 904027279}
+  clueFoundClip: {fileID: 8300000, guid: e8e2df84a01921d47a6e6141f30b97b2, type: 3}
+  gameWonClip: {fileID: 8300000, guid: 267b34ad44eb09d45bc586ceffc47830, type: 3}
+  gameLostClip: {fileID: 8300000, guid: c70cd682f4c0a504aa619946e5e716e7, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 900000031}
   - {fileID: 900000002}
   - {fileID: 617506424}
   - {fileID: 816365546}
