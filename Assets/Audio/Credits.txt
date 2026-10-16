@@ -1,0 +1,56 @@
+AUDIO CREDITS - The Silent Gallery
+==================================
+
+All sound effects and music in this project were downloaded from Pixabay
+(https://pixabay.com/sound-effects/) and are used under the Pixabay Content
+License ("Free for use").
+
+----------------------------------------------------------------------
+SOUND EFFECTS
+----------------------------------------------------------------------
+
+1. ClueFound
+   Title:   Mystical Chime
+   Artist:  u_1cwn0vj1yq
+   Source:  Pixabay
+   Link:    https://pixabay.com/sound-effects/search/discovery%20chime/
+   License: Pixabay Content License (Free for use)
+
+2. PuzzleSolved
+   Title:   Game Bonus 02
+   Artist:  Universfield
+   Source:  Pixabay
+   Link:    https://pixabay.com/sound-effects/film-special-effects-game-bonus-02-294436/
+   License: Pixabay Content License (Free for use)
+
+3. PuzzleFailed
+   Title:   Error Beep
+   Artist:  humordome
+   Source:  Pixabay
+   Link:    https://pixabay.com/sound-effects/error-beep-453357/
+   License: Pixabay Content License (Free for use)
+
+4. GameWin
+   Title:   Victory Bell Success Fanfare
+   Artist:  Emand_Edroff
+   Source:  Pixabay
+   Link:    https://pixabay.com/sound-effects/musical-victory-bell-success-fanfare-576275/
+   License: Pixabay Content License (Free for use)
+
+5. GameLose
+   Title:   Game Over Deep Male Voice Clip
+   Artist:  Universfield
+   Source:  Pixabay
+   Link:    https://pixabay.com/sound-effects/film-special-effects-game-over-deep-male-voice-clip-352695/
+   License: Pixabay Content License (Free for use)
+
+----------------------------------------------------------------------
+MUSIC / AMBIENT
+----------------------------------------------------------------------
+
+6. BackgroundMusic
+   Title:   resonating very far away
+   Artist:  burning-mir (Freesound)
+   Source:  Pixabay
+   Link:   https://pixabay.com/sound-effects/musical-resonating-very-far-away-56773/
+   License: Pixabay Content License (Free for use)
