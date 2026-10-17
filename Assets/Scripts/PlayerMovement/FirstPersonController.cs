@@ -23,7 +23,10 @@ namespace SilentGallery.PlayerMovement
         [SerializeField]
         private float gravity = -9.81f;
 
-        /// <summary>Mouse look sensitivity. Higher values turn the camera faster.</summary>
+        /// <summary>
+        /// Default mouse look sensitivity, used until the player sets one via
+        /// the Settings panel (saved to PlayerPrefs under "MouseSens").
+        /// </summary>
         [SerializeField]
         private float mouseSensitivity = 2f;
 
@@ -67,8 +70,9 @@ namespace SilentGallery.PlayerMovement
 
         private void HandleMouseLook()
         {
-            float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
-            float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity;
+            float sensitivity = PlayerPrefs.GetFloat("MouseSens", mouseSensitivity);
+            float mouseX = Input.GetAxis("Mouse X") * sensitivity;
+            float mouseY = Input.GetAxis("Mouse Y") * sensitivity;
 
             transform.Rotate(Vector3.up * mouseX);
 
