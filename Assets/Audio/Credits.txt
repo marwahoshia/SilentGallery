@@ -13,7 +13,7 @@ SOUND EFFECTS
    Title:   Mystical Chime
    Artist:  u_1cwn0vj1yq
    Source:  Pixabay
-   Link:    https://pixabay.com/sound-effects/search/discovery%20chime/
+   Link:   https://pixabay.com/sound-effects/film-special-effects-mystical-chime-196405/
    License: Pixabay Content License (Free for use)
 
 2. PuzzleSolved
@@ -53,4 +53,29 @@ MUSIC / AMBIENT
    Artist:  burning-mir (Freesound)
    Source:  Pixabay
    Link:   https://pixabay.com/sound-effects/musical-resonating-very-far-away-56773/
+   License: Pixabay Content License (Free for use)
+----------------------------------------------------------------------
+FOOTSTEPS
+----------------------------------------------------------------------
+
+7. Footstep_1
+   Title:   Stone Footsteps 1
+   Artist:  EAGLAXLE
+   Source:  Pixabay
+   Link:    https://pixabay.com/sound-effects/stone-footsteps-1-455132/
+   License: Pixabay Content License (Free for use)
+   Note:    Marked as "AI generated" on the Pixabay page
+
+8. Footstep_2
+   Title:   St2 - Footstep sfx
+   Artist:  Yarzur_ofc
+   Source:  Pixabay
+   Link:    https://pixabay.com/sound-effects/film-special-effects-st2-footstep-sfx-323055/
+   License: Pixabay Content License (Free for use)
+
+9. Footstep_3
+   Title:   St3 - Footstep sfx
+   Artist:  Yarzur_ofc
+   Source:  Pixabay
+   Link:    https://pixabay.com/sound-effects/film-special-effects-st3-footstep-sfx-323056/
    License: Pixabay Content License (Free for use)
