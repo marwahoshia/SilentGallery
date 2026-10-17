@@ -57,8 +57,7 @@ namespace SilentGallery.UISystem
                 pausePanel.SetActive(true);
             }
             Time.timeScale = 0f;
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
+            UIState.OpenPanel();
         }
 
         /// <summary>
@@ -73,8 +72,7 @@ namespace SilentGallery.UISystem
                 pausePanel.SetActive(false);
             }
             Time.timeScale = 1f;
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
+            UIState.ClosePanel();
         }
 
         /// <summary>

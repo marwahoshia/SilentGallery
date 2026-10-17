@@ -56,7 +56,7 @@ namespace SilentGallery.PlayerMovement
 
         private void Update()
         {
-            if (Time.timeScale == 0f)
+            if (Time.timeScale == 0f || UIState.IsBlocking)
             {
                 return;
             }

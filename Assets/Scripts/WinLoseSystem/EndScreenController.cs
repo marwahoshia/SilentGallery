@@ -58,8 +58,7 @@ namespace SilentGallery.WinLoseSystem
                 panel.SetActive(true);
             }
             Time.timeScale = 0f;
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
+            UIState.OpenPanel();
         }
 
         /// <summary>

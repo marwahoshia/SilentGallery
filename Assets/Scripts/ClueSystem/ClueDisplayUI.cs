@@ -59,12 +59,16 @@ namespace SilentGallery.ClueSystem
                 bodyText.text = clue.ClueText;
             }
 
-            // Show panel
+            // Show panel. Only register with UIState on the closed -> open
+            // transition, since a new clue can arrive while one is already
+            // showing (the timer just restarts) - calling OpenPanel again
+            // here would desync the open-panel count.
+            bool wasAlreadyOpen = cluePanel.activeSelf;
             cluePanel.SetActive(true);
-
-            // Unlock and show the mouse cursor so the player can click Close
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
+            if (!wasAlreadyOpen)
+            {
+                UIState.OpenPanel();
+            }
 
             // If an old timer is running, restart it
             if (closeCoroutine != null)
@@ -78,16 +82,28 @@ namespace SilentGallery.ClueSystem
         private IEnumerator AutoCloseClue()
         {
             yield return new WaitForSeconds(displayDuration);
+            closeCoroutine = null;
+            CloseClueDisplay();
+        }
 
-            if (cluePanel != null)
+        /// <summary>
+        /// Hides the clue popup and releases its hold on the cursor. Safe to
+        /// call whether closing happens automatically or via the Close button;
+        /// calling it twice for the same open popup has no extra effect.
+        /// </summary>
+        public void CloseClueDisplay()
+        {
+            if (closeCoroutine != null)
             {
-                cluePanel.SetActive(false);
+                StopCoroutine(closeCoroutine);
+                closeCoroutine = null;
             }
 
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
-
-            closeCoroutine = null;
+            if (cluePanel != null && cluePanel.activeSelf)
+            {
+                cluePanel.SetActive(false);
+                UIState.ClosePanel();
+            }
         }
     }
 }

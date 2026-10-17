@@ -6,7 +6,7 @@ namespace SilentGallery.ClueSystem
     public class ClueCloseButton : MonoBehaviour
     {
         [SerializeField]
-        private GameObject cluePanel;
+        private ClueDisplayUI clueDisplayUI;
 
         private Button closeButton;
 
@@ -22,13 +22,10 @@ namespace SilentGallery.ClueSystem
 
         private void ClosePanel()
         {
-            if (cluePanel != null)
+            if (clueDisplayUI != null)
             {
-                cluePanel.SetActive(false);
+                clueDisplayUI.CloseClueDisplay();
             }
-
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
         }
     }
 }
