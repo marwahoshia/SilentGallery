@@ -9887,6 +9887,7 @@ GameObject:
   - component: {fileID: 1685665574}
   - component: {fileID: 1685665577}
   - component: {fileID: 1685665576}
+  - component: {fileID: 900000040}
   m_Layer: 0
   m_Name: player
   m_TagString: Untagged
@@ -12550,6 +12551,25 @@ MonoBehaviour:
   clueFoundClip: {fileID: 8300000, guid: e8e2df84a01921d47a6e6141f30b97b2, type: 3}
   gameWonClip: {fileID: 8300000, guid: 267b34ad44eb09d45bc586ceffc47830, type: 3}
   gameLostClip: {fileID: 8300000, guid: c70cd682f4c0a504aa619946e5e716e7, type: 3}
+--- !u!114 &900000040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1685665572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2968e8060ee835644a8f53d9466f6d7b, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  footstepClips:
+  - {fileID: 8300000, guid: 1d1ffd06abd08344e98d5baf5af67f32, type: 3}
+  - {fileID: 8300000, guid: e826018a39ec8a94e9ece16513c01f80, type: 3}
+  - {fileID: 8300000, guid: 048700932b912d74e97c6496a183d285, type: 3}
+  stepInterval: 0.5
+  minWalkSpeed: 0.5
+  stepVolume: 0.5
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
