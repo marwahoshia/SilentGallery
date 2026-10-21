@@ -34,13 +34,14 @@ namespace SilentGallery.UISystem
         {
             if (Input.GetKeyDown(pauseKey))
             {
-                Debug.Log("Escape pressed");
                 if (IsPaused)
                 {
                     ResumeGame();
                 }
-                else
+                else if (!UIState.IsBlocking)
                 {
+                    // Don't open on top of another panel (conclusion quiz,
+                    // combination lock, settings, etc) that's already up.
                     PauseGame();
                 }
             }
