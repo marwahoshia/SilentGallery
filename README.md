@@ -56,6 +56,23 @@ Third-party environment and prop assets used, under their respective licenses, f
 - Concrete Bench — H&L Assets
 - Furniture (Bandaji, folding screens, tables) — KCDF
 
+### Audio
+
+All sound effects, music and ambience were downloaded from [Pixabay](https://pixabay.com/sound-effects/) and are used under the Pixabay Content License. The same details are in `Assets/Audio/Credits.txt`.
+
+| Use | Title | Artist | Link |
+|---|---|---|---|
+| Clue found | Mystical Chime | u_1cwn0vj1yq | [link](https://pixabay.com/sound-effects/film-special-effects-mystical-chime-196405/) |
+| Puzzle solved | Game Bonus 02 | Universfield | [link](https://pixabay.com/sound-effects/film-special-effects-game-bonus-02-294436/) |
+| Puzzle failed | Error Beep | humordome | [link](https://pixabay.com/sound-effects/error-beep-453357/) |
+| Game won | Victory Bell Success Fanfare | Emand_Edroff | [link](https://pixabay.com/sound-effects/musical-victory-bell-success-fanfare-576275/) |
+| Game lost | Game Over Deep Male Voice Clip | Universfield | [link](https://pixabay.com/sound-effects/film-special-effects-game-over-deep-male-voice-clip-352695/) |
+| Background music | resonating very far away | burning-mir (Freesound) | [link](https://pixabay.com/sound-effects/musical-resonating-very-far-away-56773/) |
+| Footstep 1 (marked "AI generated" on Pixabay) | Stone Footsteps 1 | EAGLAXLE | [link](https://pixabay.com/sound-effects/stone-footsteps-1-455132/) |
+| Footstep 2 | St2 - Footstep sfx | Yarzur_ofc | [link](https://pixabay.com/sound-effects/film-special-effects-st2-footstep-sfx-323055/) |
+| Footstep 3 | St3 - Footstep sfx | Yarzur_ofc | [link](https://pixabay.com/sound-effects/film-special-effects-st3-footstep-sfx-323056/) |
+| Ambience | Big Room Ambience 1 | ecfike (Freesound) | [link](https://pixabay.com/sound-effects/film-special-effects-big-room-ambience-1-77517/) |
+
 ## How to Play
 
 **Starting the Game:** Open the project in Unity 2022.3.62f3, open `Assets/MainMenu.unity`, and press Play — or run a built `.exe`, which starts at the Main Menu automatically. From the Main Menu, select **New Game** to begin.
@@ -71,8 +88,10 @@ Third-party environment and prop assets used, under their respective licenses, f
 | Move | `W` `A` `S` `D` |
 | Look around | Mouse |
 | Interact with paintings and artifacts | `E` |
-| Open evidence journal | `J` |
 | Pause / Resume | `Esc` |
+| Open / close evidence journal | `J` |
+| Combination lock | Mouse: digit up/down buttons, then Submit |
+| Open cheat panel (Editor / development builds only) | `F10` |
 
 ## Objectives & Goals
 
@@ -89,6 +108,10 @@ Third-party environment and prop assets used, under their respective licenses, f
 - **Countdown Timer:** A 5-minute timer runs from the moment gameplay starts, shown top-right of the screen, and drives the lose condition if it reaches zero — including while the final quiz or the combination lock is open.
 - **Win / Lose End Screen:** Correctly naming the culprit in time shows "YOU WIN!"; running out of time or out of quiz attempts shows "YOU LOSE!". Both offer a restart button and a return to Main Menu.
 - **Pause Menu:** `Esc` opens a pause overlay (Resume / Restart / Main Menu / Quit) and freezes gameplay time without exiting the scene; it won't open on top of another panel that's already up.
+- **Audio System:** An Audio Mixer (`SilentGalleryMixer`) with Master, SFX and Music groups; the volumes are exposed as `MasterVolume`, `MusicVolume` and `SFXVolume` and are driven by the Settings screen. `AudioManager` is a persistent singleton (`DontDestroyOnLoad`) that plays sound effects, while background music and ambience loop on their own sources. Gameplay sounds are event-driven: `GameplaySfxPlayer` listens to the clue and win/lose events, `PuzzleSfxPlayer` listens to the combination lock's `OnUnlocked` and `OnWrongCode` events, and `FootstepController` plays footsteps only while the player is moving.
+- **Clue HUD:** `ClueHud` shows how many clues were found (for example `Clues: 2/5`), the titles found so far, and the current objective. It updates from the `OnClueRevealed` event instead of polling every frame.
+- **Evidence Journal:** Press `J` to open or close the journal. It lists every discovered clue with its full text. It uses `UIState`, so movement and camera are blocked while it is open, and it cannot be opened over another panel.
+- **Cheat Manager (development only):** Press `F10` for an in-game debug panel. Currently it reveals up to five clues that were not found yet, which updates the HUD, the journal and the win condition. The whole system is wrapped in `#if UNITY_EDITOR || DEVELOPMENT_BUILD`, so it is not part of a normal release build.
 
 ## System Requirements
 
