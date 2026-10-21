@@ -74,5 +74,13 @@ namespace SilentGallery.TimerSystem
         {
             IsRunning = false;
         }
+
+        
+        /// <summary>Adds seconds to the timer. Use a negative number to remove time.</summary>
+        public void AddTime(float seconds)
+        {
+            RemainingSeconds = Mathf.Max(0f, RemainingSeconds + seconds);
+            OnTimeUpdated?.Invoke(RemainingSeconds);
+        }
     }
 }

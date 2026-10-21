@@ -20,6 +20,10 @@ public class CombinationLock : MonoBehaviour, IInteractable
     [Header("Called when the code is correct")]
     public UnityEvent OnUnlocked;
 
+    
+    [Header("Called when the code is wrong")]
+    public UnityEvent OnWrongCode;
+
     private int[] currentCode = new int[3];
     private bool isUnlocked = false;
 
@@ -42,9 +46,9 @@ public class CombinationLock : MonoBehaviour, IInteractable
         return "Press E to open the lock";
     }
 
-    // ---------- Open / Close ----------
-    public void OpenPanel()
+        public void OpenPanel()
     {
+        if (!panel.activeSelf) UIState.OpenPanel();
         panel.SetActive(true);
         feedbackText.text = "";
         SetPlayerControl(false);
@@ -52,6 +56,7 @@ public class CombinationLock : MonoBehaviour, IInteractable
 
     public void ClosePanel()
     {
+        if (panel.activeSelf) UIState.ClosePanel();
         panel.SetActive(false);
         SetPlayerControl(true);
     }
@@ -104,6 +109,7 @@ public class CombinationLock : MonoBehaviour, IInteractable
             {
                 feedbackText.text = "Wrong code!";
                 StartCoroutine(Shake());
+                OnWrongCode.Invoke();
                 return;
             }
         }
