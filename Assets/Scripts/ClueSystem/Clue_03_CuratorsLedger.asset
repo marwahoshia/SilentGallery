@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ca637697d8219346a6719fd063dd407, type: 3}
   m_Name: Clue_03_CuratorsLedger
   m_EditorClassIdentifier: 
-  clueId: 
-  title: 
-  clueText: 
+  clueId: clue_003
+  title: The Curator's Ledger
+  clueText: 'Entries for the missing piece are crossed out and rewritten in the
+    curator''s own hand, dated just days before it disappeared.'
