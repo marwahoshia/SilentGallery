@@ -31,9 +31,18 @@ Welcome. This document provides essential information about the game, including 
 
 **Team:** Fatima Abu Abed, Marwa Hoshia, Hiba Abdo, Haneen Shqerat
 
-The player wakes up locked inside a museum gallery after closing time. Something happened here, and the only way out is to piece together what — five clues are hidden among the exhibits: a torn letter, a smudged painting, a curator's ledger, a Greek statue, and an old museum key. Explore the gallery, interact with the paintings and artifacts, and find them all before dawn — or the mystery remains unsolved.
+The player is locked inside a museum gallery after closing time, following the theft of a valuable artifact. Eight clues are hidden among the exhibits, but only five are needed to reach a verdict. One additional clue sits behind a locked cabinet, guarded by a 3-digit combination you can piece together from clues found elsewhere in the gallery. Once enough evidence is gathered, you're asked to name the culprit — get it right before the clock runs out to win, or the mystery goes unsolved.
 
 ## Credits
+
+### Individual Contributions — Marwa Hoshia
+
+- Built the core UI flow: the How To Play panel, the Settings panel (master/music volume, mouse sensitivity), and the loading screen between the Main Menu and the Gallery
+- Designed `UIState`, a central cursor-lock/pause-blocking system used by every panel in the game (pause menu, settings, clue popups, combination lock, conclusion quiz, cheat panel) so they don't fight over cursor control or stack on top of each other
+- Built the conclusion/accusation system: a final quiz the player must answer correctly to win, replacing the earlier "win on last clue found" logic
+- Fixed a number of interaction and UI bugs: missing colliders on several clue objects, a clue object left disabled in the scene, the interaction prompt rendering through open panels, the pause menu opening on top of other panels, and a quiz panel where every element was stacked on the same position
+- Gave the combination lock puzzle real stakes: solving it now grants bonus time, and its reward clue was rewritten to actually point to the culprit instead of being flavor text
+- Set up Git LFS for the submission repository and merged the team's separate work (audio, HUD, puzzles) into a consistent history across both repositories
 
 Third-party environment and prop assets used, under their respective licenses, for educational, non-commercial coursework use:
 
@@ -51,7 +60,7 @@ Third-party environment and prop assets used, under their respective licenses, f
 
 **Starting the Game:** Open the project in Unity 2022.3.62f3, open `Assets/MainMenu.unity`, and press Play — or run a built `.exe`, which starts at the Main Menu automatically. From the Main Menu, select **New Game** to begin.
 
-**Gameplay Basics:** You start inside the gallery with a 5-minute countdown already running (shown top-right of the screen). Walk around, look at the exhibits, and press **E** whenever a "Press E to inspect..." prompt appears to reveal a clue. Each clue opens a popup with its title and text, then closes automatically, or via the on-screen Close button.
+**Gameplay Basics:** You start inside the gallery with a 5-minute countdown already running (shown top-right of the screen). Walk around, look at the exhibits, and press **E** whenever a "Press E to inspect..." prompt appears to reveal a clue or open an interactable object, such as the combination lock. Each clue opens a popup with its title and text, then closes automatically, or via the on-screen Close button; press **J** at any time to review everything you've found so far in the evidence journal. Once you've revealed 5 clues, a final accusation screen appears — pick who you believe is responsible.
 
 **Levels/Stages:** The game has a single gameplay scene (the Gallery). There are no separate levels — the whole objective is contained within one continuous playthrough.
 
@@ -62,21 +71,24 @@ Third-party environment and prop assets used, under their respective licenses, f
 | Move | `W` `A` `S` `D` |
 | Look around | Mouse |
 | Interact with paintings and artifacts | `E` |
+| Open evidence journal | `J` |
 | Pause / Resume | `Esc` |
 
 ## Objectives & Goals
 
-**Main Objective:** Find all 5 hidden clues scattered across the museum before the 5-minute timer runs out.
+**Main Objective:** Reveal 5 of the 8 hidden clues scattered across the museum, then correctly accuse the culprit in the final quiz — all before the 5-minute timer runs out.
 
-**Secondary Goals:** None beyond the main objective — the clue texts build a small narrative as you find them, but there's no separate scoring or optional content.
+**Secondary Goals:** A locked cabinet can be opened by solving a 3-digit combination hinted at across three of the clues; solving it reveals an extra clue and grants bonus time on the countdown. A limited number of hints are available if you get stuck on the combination, at the cost of time.
 
 ## Game Mechanics & Features
 
-- **Clue Reveal System:** Interactable exhibits hold clue data (title + text). Finding a new clue shows a popup and counts toward the win condition; already-found clues can be re-inspected without double-counting.
-- **Interaction System:** A camera raycast detects nearby interactable objects and shows a context-sensitive prompt before you interact.
-- **Countdown Timer:** A 5-minute timer runs from the moment gameplay starts, shown top-right of the screen, and drives the lose condition if it reaches zero first.
-- **Win / Lose End Screen:** Finding all 5 clues before time runs out shows "YOU WIN! All clues found!"; the timer expiring first shows "YOU LOSE! Time is up...". Both offer a restart button and a return to Main Menu.
-- **Pause Menu:** `Esc` opens a pause overlay (Resume / Restart / Main Menu / Quit) and freezes gameplay time without exiting the scene.
+- **Clue Reveal System:** Interactable exhibits hold clue data (title + text). Eight clues exist in total; finding any 5 of them is enough to trigger the final accusation. Already-found clues can be re-inspected without double-counting, and the evidence journal (`J`) lists everything revealed so far.
+- **Combination Lock Puzzle:** A locked cabinet guarded by a 3-digit code, pieced together from three of the clues. Solving it grants bonus time on the countdown and unlocks one additional clue; a built-in hint system can reveal digits at the cost of time if you're stuck.
+- **Conclusion / Accusation System:** Once 5 clues are found, a final quiz asks you to name the culprit from a short list of suspects. Answering correctly wins the game and stops the clock; a wrong answer costs you an attempt and a short time penalty before you can try again, with a limited number of attempts before you lose outright.
+- **Interaction System:** A camera raycast detects nearby interactable objects and shows a context-sensitive prompt before you interact; this pauses automatically whenever a menu or panel is open.
+- **Countdown Timer:** A 5-minute timer runs from the moment gameplay starts, shown top-right of the screen, and drives the lose condition if it reaches zero — including while the final quiz or the combination lock is open.
+- **Win / Lose End Screen:** Correctly naming the culprit in time shows "YOU WIN!"; running out of time or out of quiz attempts shows "YOU LOSE!". Both offer a restart button and a return to Main Menu.
+- **Pause Menu:** `Esc` opens a pause overlay (Resume / Restart / Main Menu / Quit) and freezes gameplay time without exiting the scene; it won't open on top of another panel that's already up.
 
 ## System Requirements
 
@@ -97,7 +109,6 @@ Third-party environment and prop assets used, under their respective licenses, f
 ## Known Issues & Troubleshooting
 
 - **Main Menu doesn't appear when pressing Play in the Unity Editor:** Play mode runs whichever scene is currently open in the Editor, not necessarily the first Build Settings scene. Open `Assets/MainMenu.unity` before pressing Play. This does not affect built `.exe` versions, which always start at the Main Menu correctly.
-- **Settings panel is a placeholder:** The Settings screen (Main Menu) currently has no functional options.
 
 ## Additional Notes
 
