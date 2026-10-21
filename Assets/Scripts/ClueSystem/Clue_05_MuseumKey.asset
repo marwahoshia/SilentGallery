@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clueId: clue_005
   title: The Old Museum Key
-  clueText: "An old key was hidden nearby. A small tag attached to it reads: \"East
-    Wing \u2014 Storage.\""
+  clueText: "A small tag on this key reads: \"East Wing \u2014 Storage.\" Only
+    the curator signs that room's key out \u2014 and this one never made it back
+    onto the board."
