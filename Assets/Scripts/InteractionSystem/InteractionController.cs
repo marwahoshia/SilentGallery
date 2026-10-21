@@ -29,6 +29,16 @@ namespace SilentGallery.InteractionSystem
                 return;
             }
 
+            if (UIState.IsBlocking)
+            {
+                if (currentInteractable != null)
+                {
+                    OnInteractableLost?.Invoke();
+                    currentInteractable = null;
+                }
+                return;
+            }
+
             UpdateFocusedInteractable();
 
             if (currentInteractable != null && Input.GetKeyDown(interactKey))
