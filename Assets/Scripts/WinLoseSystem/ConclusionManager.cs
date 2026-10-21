@@ -1,4 +1,5 @@
 using System.Collections;
+using SilentGallery.ClueSystem;
 using SilentGallery.WinLoseSystem;
 using TMPro;
 using UnityEngine;
@@ -11,6 +12,7 @@ public class ConclusionManager : MonoBehaviour
     [SerializeField] private int correctAnswerIndex;
     [SerializeField] private TMP_Text feedbackText;
     [SerializeField] private GameOutcomeManager gameOutcomeManager;
+    [SerializeField] private ClueDisplayUI clueDisplayUI;
 
     [SerializeField] private int maxWrongAttempts = 3;
     [SerializeField] private float penaltySeconds = 30f;
@@ -62,6 +64,8 @@ public class ConclusionManager : MonoBehaviour
 
     public void ShowConclusion()
     {
+        clueDisplayUI?.CloseClueDisplay();
+
         wrongAttempts = 0;
         isPenalized = false;
         SetButtonsInteractable(true);
