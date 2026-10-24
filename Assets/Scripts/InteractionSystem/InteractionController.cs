@@ -33,6 +33,7 @@ namespace SilentGallery.InteractionSystem
             {
                 if (currentInteractable != null)
                 {
+                    SetHighlight(currentInteractable, false);
                     OnInteractableLost?.Invoke();
                     currentInteractable = null;
                 }
@@ -58,10 +59,10 @@ namespace SilentGallery.InteractionSystem
 
             if (Physics.Raycast(ray, out RaycastHit hit, interactionRange))
             {
-                // First: look on the exact object or one of its parents
+                
                 hitInteractable = hit.collider.GetComponentInParent<IInteractable>();
 
-                // If not found, try children too
+                
                 if (hitInteractable == null)
                 {
                     hitInteractable = hit.collider.GetComponentInChildren<IInteractable>();
@@ -87,8 +88,27 @@ namespace SilentGallery.InteractionSystem
                     OnInteractableLost?.Invoke();
                 }
 
+                SetHighlight(currentInteractable, false);
                 currentInteractable = hitInteractable;
+                SetHighlight(currentInteractable, true);
             }
+        }
+
+        private void OnDisable()
+        {
+            SetHighlight(currentInteractable, false);
+        }
+
+        private static void SetHighlight(IInteractable target, bool on)
+        {
+            if (!(target is Component c)) return;
+            InteractHighlight h = c.GetComponent<InteractHighlight>();
+            if (h == null)
+            {
+                if (!on) return;
+                h = c.gameObject.AddComponent<InteractHighlight>();
+            }
+            h.SetHighlighted(on);
         }
     }
 }

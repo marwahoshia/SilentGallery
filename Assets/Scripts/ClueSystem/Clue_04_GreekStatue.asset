@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clueId: clue_004
   title: The Greek Statue
-  clueText: A strange symbol is carved into the base of the statue. It matches a
-    mark mentioned in the curator's records.
+  clueText: 'A strange symbol is carved into the base of the statue: a small sun.
+    It points to a ribbed urn standing on the floor against the wall, right in front
+    of the bust of a man''s head. Look closely around it.'

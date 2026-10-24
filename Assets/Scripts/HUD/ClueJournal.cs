@@ -39,6 +39,9 @@ namespace SilentGallery.Hud
             if (clueManager != null)
             {
                 clueManager.OnClueRevealed += HandleClueRevealed;
+                clueManager.OnClueRevealedSilently += HandleClueRevealed;
+                clueManager.OnClueRemoved += HandleClueRemoved;
+                clueManager.OnCluesReset += HandleCluesReset;
             }
             else
             {
@@ -65,6 +68,9 @@ namespace SilentGallery.Hud
             if (clueManager != null)
             {
                 clueManager.OnClueRevealed -= HandleClueRevealed;
+                clueManager.OnClueRevealedSilently -= HandleClueRevealed;
+                clueManager.OnClueRemoved -= HandleClueRemoved;
+                clueManager.OnCluesReset -= HandleCluesReset;
             }
             if (gameOutcomeManager != null)
             {
@@ -96,6 +102,23 @@ namespace SilentGallery.Hud
                 clues.Add(clue);
                 if (isOpen) Rebuild();
             }
+        }
+
+        private void HandleClueRemoved(ClueData clue)
+        {
+            if (clue == null) return;
+            if (clueIds.Remove(clue.ClueId))
+            {
+                clues.RemoveAll(c => c.ClueId == clue.ClueId);
+                if (isOpen) Rebuild();
+            }
+        }
+
+        private void HandleCluesReset()
+        {
+            clues.Clear();
+            clueIds.Clear();
+            if (isOpen) Rebuild();
         }
 
         private void Open()
