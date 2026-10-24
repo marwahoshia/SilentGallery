@@ -4724,6 +4724,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2353300527846231392, guid: b14c43d17b6825146ba9a5eb7e102dae, type: 3}
       insertIndex: -1
       addedObject: {fileID: 895305024}
+    - targetCorrespondingSourceObject: {fileID: 2353300527846231392, guid: b14c43d17b6825146ba9a5eb7e102dae, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 895305026}
+    - targetCorrespondingSourceObject: {fileID: 2353300527846231392, guid: b14c43d17b6825146ba9a5eb7e102dae, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 895305025}
     - targetCorrespondingSourceObject: {fileID: 1078902724275287571, guid: b14c43d17b6825146ba9a5eb7e102dae, type: 3}
       insertIndex: -1
       addedObject: {fileID: 664539424}
@@ -6462,6 +6468,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 289229436580508069, guid: bdc72ce32fb02ad4fa12049947fa01f7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1872846397}
+    - targetCorrespondingSourceObject: {fileID: 289229436580508069, guid: bdc72ce32fb02ad4fa12049947fa01f7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1872846399}
+    - targetCorrespondingSourceObject: {fileID: 289229436580508069, guid: bdc72ce32fb02ad4fa12049947fa01f7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1872846398}
     - targetCorrespondingSourceObject: {fileID: 6351383322266062147, guid: bdc72ce32fb02ad4fa12049947fa01f7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 163160178}
@@ -7717,6 +7729,40 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clueData: {fileID: 11400000, guid: ef7c8d1c2933baa449410997cb774c11, type: 2}
+--- !u!114 &895305025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 895305021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d9b3e7a2c4f4a68b1e0987654321fed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clueId: clue_06_sun
+--- !u!95 &895305026
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 895305021}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 013757eb8dc5ba24e91e800416913707, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &900000001
 GameObject:
   m_ObjectHideFlags: 0
@@ -9974,6 +10020,40 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.121932, y: 1.039106, z: 1.232624}
   m_Center: {x: 0, y: -9.313226e-10, z: 0.0000000037252907}
+--- !u!114 &1094308424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1094308417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d9b3e7a2c4f4a68b1e0987654321fed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clueId: clue_005
+--- !u!95 &1094308425
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1094308417}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 72c0f6dd4c9dde746882712aa91f5628, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &1094701611
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11087,6 +11167,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 374289202576707483, guid: 78df1db2fbc8ec64f949fac0c05bf693, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1094308423}
+    - targetCorrespondingSourceObject: {fileID: 374289202576707483, guid: 78df1db2fbc8ec64f949fac0c05bf693, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1094308425}
+    - targetCorrespondingSourceObject: {fileID: 374289202576707483, guid: 78df1db2fbc8ec64f949fac0c05bf693, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1094308424}
   m_SourcePrefab: {fileID: 100100000, guid: 78df1db2fbc8ec64f949fac0c05bf693, type: 3}
 --- !u!1 &1161414192 stripped
 GameObject:
@@ -16426,6 +16512,12 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6935402220762578692, guid: ef758fa49b1957a4ba9eb1a112bf6f32, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1807356511}
+    - targetCorrespondingSourceObject: {fileID: 6935402220762578692, guid: ef758fa49b1957a4ba9eb1a112bf6f32, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1807356510}
     - targetCorrespondingSourceObject: {fileID: 8381613556729148017, guid: ef758fa49b1957a4ba9eb1a112bf6f32, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1161414196}
@@ -16433,6 +16525,45 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1161414200}
   m_SourcePrefab: {fileID: 100100000, guid: ef758fa49b1957a4ba9eb1a112bf6f32, type: 3}
+--- !u!1 &1807356509 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6935402220762578692, guid: ef758fa49b1957a4ba9eb1a112bf6f32, type: 3}
+  m_PrefabInstance: {fileID: 1807356508}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1807356510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1807356509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d9b3e7a2c4f4a68b1e0987654321fed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clueId: clue_08_star
+--- !u!95 &1807356511
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1807356509}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8e06cc19dfe4a9e499992f2c24109964, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &1813590040
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17057,6 +17188,40 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clueData: {fileID: 11400000, guid: fe910ea4139b6bf44b770f30d5614fed, type: 2}
+--- !u!114 &1872846398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1872846395}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d9b3e7a2c4f4a68b1e0987654321fed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clueId: clue_07_moon
+--- !u!95 &1872846399
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1872846395}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6fa3ed7df33ce8746a16d6d99d11cc6a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1887284448
 GameObject:
   m_ObjectHideFlags: 0
