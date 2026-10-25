@@ -147,13 +147,13 @@ All sound effects, music and ambience were downloaded from [Pixabay](https://pix
 
 **Screenshots:**
 
-| Main Menu | How to Play |
-|---|---|
-| ![Main Menu](Screenshots/MainMenu.png) | ![How to Play](Screenshots/HowToPlay.png) |
+| Main Menu | How to Play | Loading Screen |
+|---|---|---|
+| ![Main Menu](Screenshots/MainMenu.png) | ![How to Play](Screenshots/HowToPlay.png) | ![Loading Screen](Screenshots/Loading.png) |
 
-| Gameplay | Clue Popup |
-|---|---|
-| ![Gameplay](Screenshots/Gameplay.png) | ![Clue Popup](Screenshots/CluePopup.png) |
+| Gameplay | Clue Popup | Clue Popup (Statue) |
+|---|---|---|
+| ![Gameplay](Screenshots/Gameplay.png) | ![Clue Popup](Screenshots/CluePopup.png) | ![Clue Popup Statue](Screenshots/CluePopup2.png) |
 
 | Pause Menu | Win Screen | Lose Screen |
 |---|---|---|
